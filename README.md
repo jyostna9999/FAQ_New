@@ -1,4 +1,5 @@
 # FAQ_New
+To run the FAQ project:
 
 1. git clone (https://github.com/NJIT-WIS/faq.git)
 2. CD into FAQ and run composer install
