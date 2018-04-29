@@ -13,7 +13,7 @@
                         <span class="font-weight-bold">Body: </span>{{$profile->body}}</br>
                     </div>
                     <div class="card-footer">
-                        <a class="btn btn-success float-right" href="#">
+                        <a class="btn btn-success float-right" href="{{ route('profile.edit', ['user_id' => $profile->user->id,'profile_id' => $profile->id])}}">
                             Edit
                         </a>
                     </div>
