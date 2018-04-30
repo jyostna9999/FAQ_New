@@ -45,9 +45,10 @@ class HomeController extends Controller
                             ->take(5)
                             ->get();
 
+
         //dd($latestQuestions);
 
-        return view ('sidebar')->with('latestQuestions',$latestQuestions);
+        return view ('latest')->with('latestQuestions',$latestQuestions);
 
         /*To display the new question respective to the logged in user
         $user = Auth::user();
