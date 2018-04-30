@@ -18,6 +18,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/latest', 'HomeController@latestQuestion')->name('latest.question');
 
 Route::get('/user/{user_id}/profile', 'ProfileController@create')->name('profile.create');
 Route::post('/user/{user_id}/profile/', 'ProfileController@store')->name('profile.store');
@@ -35,4 +36,7 @@ Route::delete('/question/{question_id}/answer/{answer_id}', 'AnswerController@de
 
 Route::resources([
     'question' => 'QuestionController',
+
+
+
 ]);

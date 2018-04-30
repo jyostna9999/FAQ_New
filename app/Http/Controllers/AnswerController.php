@@ -119,13 +119,6 @@ class AnswerController extends Controller
         $answer->delete();
         return redirect()->route('question.show',['question_id' => $question])->with('message', 'Delete');
     }
-    public function ConfirmDelete()
-    {
-        $x = confirm("Are you sure you want to delete?");
-        if ($x)
-            return true;
-        else
-            return false;
-    }
+
 
 }
