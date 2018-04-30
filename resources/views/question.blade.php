@@ -11,10 +11,13 @@
                         {{$question->body}}
                     </div>
                     <div class="card-footer">
+                        @if (Auth::user()-> id == $question -> user_id )
+
                         <a class="btn btn-primary float-right"
                            href="{{ route('question.edit',['id'=> $question->id])}}">
                             Edit Question
                         </a>
+
 
 
                         {{ Form::open(['method'  => 'DELETE','onsubmit'=> "return confirm('Do you really want to delete?');",'route' => ['question.destroy', $question->id]])}}
@@ -22,6 +25,8 @@
                         </button>
 
                         {!! Form::close() !!}
+
+                            @endif
 
 
                     </div>

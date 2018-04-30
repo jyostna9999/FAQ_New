@@ -107,9 +107,19 @@ class QuestionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Question $question)
+    public function destroy(Question $question, Request $request)
     {
-        $question->delete();
-        return redirect()->route('home')->with('message', 'Deleted');
+
+            $question->delete();
+            return redirect()->route('home')->with('message', 'Deleted');
+
+
+        //test
+        /*if(Auth::user()->id == $request->id)
+        {
+            $question->delete();
+        }
+
+        return redirect()->route('home')->with('message', 'Deleted');*/
     }
 }
