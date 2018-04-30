@@ -82,8 +82,11 @@
                                 </form>
                             </div>
                         </li>
+
                     @endguest
                 </ul>
+
+
             </div>
         </div>
     </nav>
@@ -95,7 +98,17 @@
             @include('flash.status')
         </div>
         @yield('content')
+
     </main>
+
 </div>
+
+<div class="card>">
+    <div class="container-fluid">
+@include('sidebar')
+    </div>
+</div>
+
 </body>
+
 </html>
