@@ -19,6 +19,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/latest', 'HomeController@latestQuestion')->name('latest.question');
+Route::get('/all', 'AllQuestionsController@index')->name('all.questions');
 
 Route::get('/user/{user_id}/profile', 'ProfileController@create')->name('profile.create');
 Route::post('/user/{user_id}/profile/', 'ProfileController@store')->name('profile.store');

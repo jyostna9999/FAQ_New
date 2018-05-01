@@ -18,7 +18,7 @@
 
             @endforeach
 
-            <a class="btn btn-primary float-right small" href="#">More Questions</a>
+            <a class="btn btn-primary float-right small" href="{{route('all.questions')}}">More Questions</a>
 
         </div>
     </div>
