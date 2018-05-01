@@ -13,11 +13,12 @@
                         <li class="list-group-item"> <a href="{{ route('question.show', ['id' => $question->id]) }}">{{$question->body}}</a>
                         </li>
 
-                    </ul>
+
 
                 @endforeach
 
-
+                        <li class="list-group-item"><a class= "btn btn-primary" href="#">More Questions..</a></li>
+                    </ul>
             </div>
         </div>
     </div>
