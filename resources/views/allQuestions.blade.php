@@ -16,7 +16,7 @@
                                             <div class="card-body">
                                                 <p class="card-text">{{$questions->body}}</p>
                                             </div>
-                                            
+
                                         </div>
                                     </div>
                                 @endforeach
@@ -25,8 +25,13 @@
                         </div>
 
 
-
                     </div>
+                    <div class="card-footer">
+                        <div class="float-right">
+                            {{ $questions->links() }}
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
