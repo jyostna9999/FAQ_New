@@ -11,7 +11,7 @@
                         {{$question->body}}
                     </div>
                     <div class="card-footer">
-                        @if (Auth::user()-> id == $question -> user_id )
+                        @if (Auth::user()-> id == $question -> user_id)
 
                         <a class="btn btn-primary float-right"
                            href="{{ route('question.edit',['id'=> $question->id])}}">

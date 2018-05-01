@@ -91,6 +91,7 @@
         </div>
     </nav>
 
+
     <main class="py-4">
         <div class="col-12">
             @include('flash.error')
@@ -103,11 +104,7 @@
 
 </div>
 
-<div class="card>">
-    <div class="container-fluid">
-@include('sidebar')
-    </div>
-</div>
+
 
 </body>
 

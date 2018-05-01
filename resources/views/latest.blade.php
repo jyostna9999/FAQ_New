@@ -18,6 +18,7 @@
 
             @endforeach
 
+            <a class="btn btn-primary float-right small" href="#">More Questions</a>
 
         </div>
     </div>
