@@ -29,9 +29,15 @@ class HomeController extends Controller
     {
         $user = Auth::user();
         $questions = $user->questions()->paginate(6);
+        $latestQuestions = DB::table('questions')
+                             ->orderBy('created_at', 'desc')
+                             ->take(5)
+                             ->get();
+        //dd($latestQuestions);
 
         //dd($questions);
-        return view ('home')->with('questions',$questions);
+        //return view ('home')->with('questions',$questions);
+        return view('home', ['questions' => $questions, 'latestQuestions' => $latestQuestions ]);
 
     }
 
@@ -42,9 +48,9 @@ class HomeController extends Controller
                            //->first(); --- To fetch first record
 
         $latestQuestions = DB::table('questions')
-                            ->orderBy('created_at', 'desc')
-                            ->take(5)
-                            ->get();
+                           ->orderBy('created_at', 'desc')
+                           ->take(5)
+                           ->get();
 
 
         //dd($latestQuestions);
@@ -56,5 +62,6 @@ class HomeController extends Controller
         $latestQuestion = $user->questions()->orderBy('created_at', 'desc')->first(); --1st version*/
 
 
-    }
+   }
+
 }
