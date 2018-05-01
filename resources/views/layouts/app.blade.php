@@ -91,8 +91,10 @@
         </div>
     </nav>
 
+@if (Auth::user())
+    @include('latest')
 
-@include('latest')
+    @endif
 
     <main class="py-4">
 
