@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Question;
 use App\User;
+use Illuminate\Support\Facades\Gate;
+
 
 class QuestionController extends Controller
 {
@@ -68,6 +70,7 @@ class QuestionController extends Controller
     {
         //dd($question);
         return view('question')->with('question', $question);
+
     }
     /**
      * Show the form for editing the specified resource.
@@ -77,8 +80,12 @@ class QuestionController extends Controller
      */
     public function edit(Question $question)
     {
-        $edit = TRUE;
-        return view('questionForm', ['question' => $question, 'edit' => $edit ]);
+        if (Gate::allows('editQuestions-auth', $question))
+        {
+            $edit = TRUE;
+            return view('questionForm', ['question' => $question, 'edit' => $edit]);
+        }
+        else echo 'You are not alowed to edit others questions';
     }
 
     /**

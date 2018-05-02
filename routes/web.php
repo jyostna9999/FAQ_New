@@ -38,5 +38,6 @@ Route::resources([
     'question' => 'QuestionController',
 
 
-
 ]);
+
+//Route::get('/question/{question_id}', 'PostController@gate')->name('gate.editQuestions');
