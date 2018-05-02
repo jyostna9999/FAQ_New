@@ -1,7 +1,6 @@
-
-    <div class="container">
+    <div class="container-fluid mt-4">
         <div class="row justify-content-lg-end">
-            <div class="col-md-4">
+            <div class="col-md-12">
                 <div class="card">
                     Recently added Questions
                 </div>

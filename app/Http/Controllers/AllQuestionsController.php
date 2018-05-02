@@ -18,7 +18,7 @@ class AllQuestionsController extends Controller
     public function index(Question $question)
     {
         $allQuestions = DB::table('questions')
-            ->orderBy('created_at', 'desc')->paginate(16);
+            ->orderBy('created_at', 'desc')->paginate(9);
 
         //->get());
         //dd($allQuestions);

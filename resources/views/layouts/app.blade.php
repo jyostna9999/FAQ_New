@@ -91,10 +91,13 @@
         </div>
     </nav>
 
-@if (Auth::user())
-    @include('latest')
+    <div class="float-sm-right">
+        @if (Auth::user())
+            @include('latest')
+        @endif
 
-    @endif
+
+    </div>
 
     <main class="py-4">
 
