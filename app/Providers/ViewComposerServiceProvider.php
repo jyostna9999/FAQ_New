@@ -14,7 +14,8 @@ class ViewComposerServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->composerSidebar();
+
+        view()->composer('*', 'App\Http\ViewComposers\QuestionsComposer');
     }
 
     /**
@@ -27,14 +28,4 @@ class ViewComposerServiceProvider extends ServiceProvider
         //
     }
 
-    private function composerSidebar()
-    {
-        view()->composer('latest',function($view)
-        {
-            $view-> with ('latestQuestions',DB::table('questions')
-                ->orderBy('created_at', 'desc')
-                ->take(5)
-                ->get());
-        });
-    }
 }

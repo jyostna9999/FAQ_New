@@ -17,7 +17,7 @@
 
                 @endforeach
 
-                        <li class="list-group-item"><a class= "btn btn-primary" href="#">More Questions..</a></li>
+                        <li class="list-group-item"><a class= "btn btn-primary" href="{{route('all.questions')}}">More Questions..</a></li>
                     </ul>
             </div>
         </div>
