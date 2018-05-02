@@ -29,7 +29,8 @@ class ViewComposerServiceProvider extends ServiceProvider
 
     private function composerSidebar()
     {
-        view()->composer('latest',function($view)
+        view()->composer('*',function($view)
+       // view()->composer(['home','question','questionForm','answer','answerForm'],function($view)
         {
             $view-> with ('latestQuestions',DB::table('questions')
                 ->orderBy('created_at', 'desc')
