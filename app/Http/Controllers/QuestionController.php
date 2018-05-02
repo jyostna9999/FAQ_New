@@ -66,6 +66,7 @@ class QuestionController extends Controller
      */
     public function show(Question $question)
     {
+        //dd($question);
         return view('question')->with('question', $question);
     }
     /**

@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use Illuminate\Http\Request;
 use DB;
 use App\Question;
+
 
 class AllQuestionsController extends Controller
 {
@@ -16,14 +18,14 @@ class AllQuestionsController extends Controller
     public function index(Question $question)
     {
         $allQuestions = DB::table('questions')
-            ->orderBy('created_at', 'desc')->paginate(9);
+            ->orderBy('created_at', 'desc')->paginate(16);
 
-        $question = Question::find($question);
-       //dd($question);
-        return view ('allQuestions')->with(['allQuestions'=> $allQuestions]);
-
+        //->get());
+        //dd($allQuestions);
+        return view ('allQuestions')->with('allQuestions',$allQuestions);
 
     }
+
 
     /**
      * Show the form for creating a new resource.
