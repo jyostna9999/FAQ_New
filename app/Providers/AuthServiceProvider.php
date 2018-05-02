@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Http\Controllers\GatesController;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use App\User;
@@ -30,11 +31,8 @@ class AuthServiceProvider extends ServiceProvider
 
         //
 
-        Gate::define('editQuestions-auth', function ($user, $question)
-        {
-           return (Auth::user()-> id == $question -> user_id);
+        Gate::define('editQuestions-auth', 'GatesController@EditQuestions');
 
-        });
 
     }
 }
