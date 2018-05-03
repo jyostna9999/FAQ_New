@@ -15,7 +15,7 @@ class ViewComposerServiceProvider extends ServiceProvider
     public function boot()
     {
 
-        view()->composer('*', 'App\Http\ViewComposers\QuestionsComposer');
+        view()->composer('*', 'App\Question@latestQuestionsSidebar');
     }
 
     /**

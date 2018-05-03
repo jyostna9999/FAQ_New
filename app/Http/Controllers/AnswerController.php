@@ -80,15 +80,18 @@ class AnswerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
     public function edit($question, $answer)
     {
         $answer = Answer::find($answer);
-        if (Gate::allows('editanswers-auth', $answer)) {
-            $edit = TRUE;
-            return view('answerForm', ['answer' => $answer, 'edit' => $edit, 'question' => $question]);
+        if (Gate::allows('editanswers-auth', $answer))
+        {
+        $edit = TRUE;
+        return view('answerForm', ['answer' => $answer, 'edit' => $edit, 'question'=>$question ]);
         }
         else echo 'You are not allowed to do this operation';
     }
+
 
     /**
      * Update the specified resource in storage.

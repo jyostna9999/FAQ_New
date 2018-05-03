@@ -17,11 +17,11 @@
                         {!! Form::close() !!}
 
 
-                        @if (Auth::user()-> id == $answer -> user_id)
+
                             <a class="btn btn-primary float-right" href="{{ route('answer.edit',['question_id'=> $question, 'answer_id'=> $answer->id, ])}}">
                                 Edit Answer
                             </a>
-                        @endif
+
 
                     </div>
                 </div>
