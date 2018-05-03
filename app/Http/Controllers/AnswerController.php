@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Question;
 use App\Answer;
+use Illuminate\Support\Facades\Gate;
 
 class AnswerController extends Controller
 {
@@ -82,8 +83,11 @@ class AnswerController extends Controller
     public function edit($question, $answer)
     {
         $answer = Answer::find($answer);
-        $edit = TRUE;
-        return view('answerForm', ['answer' => $answer, 'edit' => $edit, 'question'=>$question ]);
+        if (Gate::allows('editanswers-auth', $answer)) {
+            $edit = TRUE;
+            return view('answerForm', ['answer' => $answer, 'edit' => $edit, 'question' => $question]);
+        }
+        else echo 'You are not allowed to do this operation';
     }
 
     /**

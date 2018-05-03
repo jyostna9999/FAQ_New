@@ -13,7 +13,7 @@ class QuestionsComposer{
     public function compose(View $view)
 
     {
-        $view-> with ('latestQuestions',DB::table('questions')
+      return  $view-> with ('latestQuestions',DB::table('questions')
             ->orderBy('created_at', 'desc')
             ->take(5)
             ->get());

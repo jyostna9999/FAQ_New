@@ -8,6 +8,7 @@ use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvid
 use App\User;
 use App\Question;
 use Illuminate\Support\Facades\Auth;
+use App\Answer;
 
 class AuthServiceProvider extends ServiceProvider
 {
@@ -33,6 +34,12 @@ class AuthServiceProvider extends ServiceProvider
       {
           return (Auth::user()-> id == $question -> user_id);
        });
+
+        Gate::define('editAnswers-auth', function ($user, $answer)
+        {
+            $answer = Answer::find($answer);
+            return (Auth::user()-> id == $answer -> user_id);
+        });
     }
 
 }
