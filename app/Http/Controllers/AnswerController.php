@@ -84,12 +84,10 @@ class AnswerController extends Controller
     public function edit($question, $answer)
     {
         $answer = Answer::find($answer);
-        if (Gate::allows('editanswers-auth', $answer))
-        {
+
         $edit = TRUE;
         return view('answerForm', ['answer' => $answer, 'edit' => $edit, 'question'=>$question ]);
-        }
-        else echo 'You are not allowed to do this operation';
+
     }
 
 
