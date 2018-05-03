@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Auth;
 use App\Question;
 use App\User;
 use Illuminate\Support\Facades\Gate;
+use App\Providers\AuthServiceProvider;
+use App\Http\Controllers\GatesController;
 
 
 class QuestionController extends Controller
@@ -80,12 +82,12 @@ class QuestionController extends Controller
      */
     public function edit(Question $question)
     {
-        if (Gate::allows('editQuestions-auth', $question))
+        if (Gate::allows('editDeleteQuestions-auth', $question))
         {
             $edit = TRUE;
             return view('questionForm', ['question' => $question, 'edit' => $edit]);
         }
-        else echo 'You are not alowed to edit others questions';
+        else echo 'You are not allowed to edit others questions';
     }
 
     /**
@@ -117,9 +119,15 @@ class QuestionController extends Controller
      */
     public function destroy(Question $question, Request $request)
     {
-
+        if (Gate::allows('editDeleteQuestions-auth', $question))
+        {
             $question->delete();
             return redirect()->route('home')->with('message', 'Deleted');
+
+        }
+        else echo 'You are not allowed to delete others questions';
+
+
 
 
         //test

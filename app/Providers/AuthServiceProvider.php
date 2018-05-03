@@ -29,10 +29,10 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        //
-
-        Gate::define('editQuestions-auth', 'GatesController@EditQuestions');
-
-
+        Gate::define('editDeleteQuestions-auth', function ($user, $question)
+      {
+          return (Auth::user()-> id == $question -> user_id);
+       });
     }
+
 }
