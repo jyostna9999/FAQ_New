@@ -1,9 +1,13 @@
-    <div class="container-fluid mt-4">
+
         <div class="row justify-content-lg-end">
-            <div class="col-md-12">
+            <div class="col-md-4">
+
                 <div class="card">
+                    <div class="card-header">
                     Recently added Questions
+                    </div>
                 </div>
+
 
                 @foreach($latestQuestions as $question)
 
@@ -18,6 +22,6 @@
 
                         <li class="list-group-item"><a class= "btn btn-primary" href="{{route('all.questions')}}">More Questions..</a></li>
                     </ul>
+                </div>
             </div>
-        </div>
-    </div>
+
