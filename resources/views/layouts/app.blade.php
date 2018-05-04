@@ -106,16 +106,21 @@
             @include('flash.status')
         </div>
 
-
+        <div clas="container-fluid">
+            <div class="row align-content-lg-start">
+            <div class="col-md-8">
                 @yield('content')
 
-
+            </div>
+                <div class="col-md-4">
                 <div class="float-sm-right">
                     @if (Auth::user())
                         @include('latest')
                     @endif
 
-
+                </div>
+                 </div>
+            </div>
         </div>
     </main>
 

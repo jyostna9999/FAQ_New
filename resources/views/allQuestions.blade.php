@@ -2,9 +2,6 @@
 
 @section('content')
 
-    <div class="container-fluid float-left">
-        <div class="row justify-content-lg-start">
-            <div class="col-md-8">
                 <div class="card">
                     <div class="card-header">All Questions
                         <div class="card-body">
@@ -49,8 +46,6 @@
                     </div>
 
                 </div>
-            </div>
-        </div>
-    </div>
+            
 
 @endsection

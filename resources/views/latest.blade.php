@@ -1,10 +1,8 @@
 
-        <div class="row justify-content-lg-end">
-            <div class="col-md-4">
 
                 <div class="card">
                     <div class="card-header">
-                    Recently added Questions
+                   <b> Recently added Questions</b>
                     </div>
                 </div>
 
@@ -22,6 +20,5 @@
 
                         <li class="list-group-item"><a class= "btn btn-primary" href="{{route('all.questions')}}">More Questions..</a></li>
                     </ul>
-                </div>
-            </div>
+
 

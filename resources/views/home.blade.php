@@ -1,9 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container-fluid float-left">
-        <div class="row justify-content-lg-start">
-            <div class="col-md-8">
+
                 <div class="card">
                     <div class="card-header">My Questions
                         <a class="btn btn-primary float-right" href="{{ route('question.create') }}">
@@ -52,8 +50,6 @@
 
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
+
 
 @endsection
