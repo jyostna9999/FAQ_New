@@ -26,7 +26,7 @@ class QuestionTest extends TestCase
     public  function testLatestQuestionsSidebar()
     {
         $question = Question::orderBy('created_at', 'desc') ->take(5)->get();
-        dd($question);
+        //dd($question);
 
         $this-> assertEquals(5,count($question));
 

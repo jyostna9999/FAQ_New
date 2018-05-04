@@ -106,7 +106,7 @@
             @include('flash.status')
         </div>
 
-        <div clas="container-fluid">
+        <div clas="container">
             <div class="row align-content-lg-start">
             <div class="col-md-8">
                 @yield('content')

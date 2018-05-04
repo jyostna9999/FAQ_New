@@ -82,13 +82,18 @@ class QuestionController extends Controller
      */
     public function edit(Question $question)
     {
-        if (Gate::allows('editDeleteQuestions-auth', $question))
-        {
+        if (Gate::allows('editDeleteQuestions-auth', $question)) {
             $edit = TRUE;
             return view('questionForm', ['question' => $question, 'edit' => $edit]);
         }
-        else echo 'You are not allowed to edit others questions';
+        else echo 'You are not allowed to delete others questions';
+
     }
+
+
+
+
+
 
     /**
      * Update the specified resource in storage.
