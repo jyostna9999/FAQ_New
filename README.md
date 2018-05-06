@@ -1,7 +1,7 @@
 # FAQ_New
 To run the FAQ project:
 
-1. git clone (https://github.com/NJIT-WIS/faq.git)
+1. git clone (https://github.com/jyostna9999/FAQ_New.git)
 2. CD into FAQ and run composer install
 3. cp .env.example to .env
 4. run: php artisan key:generate
