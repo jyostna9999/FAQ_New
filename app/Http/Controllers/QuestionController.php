@@ -82,13 +82,20 @@ class QuestionController extends Controller
      */
     public function edit(Question $question)
     {
-        if (Gate::allows('editDeleteQuestions-auth', $question))
-        {
+        if (Gate::allows('editDeleteQuestions-auth', $question)) {
             $edit = TRUE;
             return view('questionForm', ['question' => $question, 'edit' => $edit]);
         }
-        else echo 'You are not allowed to edit others questions';
+        else (Gate::denies('editDeleteQuestions-auth', $question)) ;
+        {
+            return redirect()->route('home')->with('message', 'Access Denied');
+        }
+
     }
+
+
+
+
 
     /**
      * Update the specified resource in storage.
@@ -119,14 +126,15 @@ class QuestionController extends Controller
      */
     public function destroy(Question $question, Request $request)
     {
-        if (Gate::allows('editDeleteQuestions-auth', $question))
-        {
+        if (Gate::allows('editDeleteQuestions-auth', $question)) {
             $question->delete();
             return redirect()->route('home')->with('message', 'Deleted');
 
         }
-        else echo 'You are not allowed to delete others questions';
-
+        else (Gate::denies('editDeleteQuestions-auth', $question)) ;
+        {
+            return redirect()->route('home')->with('message', 'Access Denied');
+        }
 
 
 

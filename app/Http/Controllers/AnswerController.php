@@ -81,13 +81,18 @@ class AnswerController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function edit($question, $answer)
+    public function edit($question, $answer_id)
     {
-        $answer = Answer::find($answer);
-
-        $edit = TRUE;
-        return view('answerForm', ['answer' => $answer, 'edit' => $edit, 'question'=>$question ]);
-
+        $answer = Answer::find($answer_id);
+        //echo $answer;
+        if (Gate::allows('editDeleteAnswers-auth', $answer)) {
+            $edit = true;
+            return view('answerForm', ['answer' => $answer, 'edit' => $edit, 'question' => $question]);
+        }
+        else (Gate::denies('editDeleteAnswers-auth', $answer)) ;
+        {
+            return redirect()->route('home')->with('message', 'Access Denied');
+        }
     }
 
 
@@ -118,11 +123,17 @@ class AnswerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($question, $answer)
+    public function destroy($question, $answer_id)
     {
-        $answer = Answer::find($answer);
-        $answer->delete();
-        return redirect()->route('question.show',['question_id' => $question])->with('message', 'Delete');
+        $answer = Answer::find($answer_id);
+        if (Gate::allows('editDeleteAnswers-auth', $answer)) {
+            $answer->delete();
+            return redirect()->route('questions.show', ['question_id' => $question])->with('message', 'Delete');
+        }
+        else (Gate::denies('editDeleteAnswers-auth', $answer)) ;
+        {
+            return redirect()->route('home')->with('message', 'Access Denied');
+        }
     }
 
 

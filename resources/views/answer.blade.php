@@ -8,6 +8,7 @@
                         {{$answer->body}}
                     </div>
                     <div class="card-footer">
+                        @if (Auth::user()->id == $answer->user_id)
                         {{ Form::open(['method'  => 'DELETE','onsubmit'=> "return confirm('Do you really want to delete?');",'route' => ['answer.destroy', $question, $answer->id]])}}
                         <input type="hidden" name="_method" value="DELETE" />
                         <button class="btn btn-danger float-right mr-2" value="submit" type="submit" id="submit">Delete
@@ -20,7 +21,7 @@
                                 Edit Answer
                             </a>
 
-
+                        @endif
                     </div>
                 </div>
 

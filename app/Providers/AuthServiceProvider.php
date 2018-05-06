@@ -29,16 +29,14 @@ class AuthServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->registerPolicies();
-
         Gate::define('editDeleteQuestions-auth', function ($user, $question)
-      {
-          return (Auth::user()-> id == $question->user_id);
-       });
-
-        Gate::define('editAnswers-auth', function ($user, $answer)
         {
-           // $answer = Answer::find($answer);
-            return (Auth::user()-> id == $answer->user_id);
+            return (Auth::user()->id == $question->user_id);
+        });
+        Gate::define('editDeleteAnswers-auth', function ($user, $answer)
+        {
+            //$answer = Answer::find($answer);
+            return (Auth::user()->id == $answer->user_id);
         });
     }
 
