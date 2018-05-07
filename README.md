@@ -11,7 +11,7 @@ To run the FAQ project:
 8. Run: seeds php artisan migrate:refresh --seed
 
 
------------------------
+-------------------------
 Epic 1: Add a section of recently added 5 questions and ‘More questions’ button to the sidebar of all the pages in the FAQ website to easily access the recently asked questions.
 
 User story 1.1: As a user, I want to see the recently added 5 questions (recently added question should be displayed first) and More Questions button in the side panel of all the pages so that I can see the recently added questions on all the pages.
@@ -26,8 +26,3 @@ User story 1.5: As a user, I should be able to click the ‘Answer’ button for
 
 --------------------------
 
-Epic 2: Implement a feature to the application which allows authorized users to edit/delete questions/answers.
-
-User story 2.1: As a user, I want to edit/delete only those questions which are directly mapped to the user, so that unauthorized users will not be given edit/delete permissions.
-
-User story 2.2: As a user, I want to edit/delete only those answers which are directly mapped to the user, so that unauthorized users will not be given edit/delete permissions.
